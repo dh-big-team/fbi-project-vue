@@ -1,0 +1,42 @@
+{
+  "name": "fbi-project-vue",
+  "version": "4.0.2",
+  "description": "SPA using Vue.js",
+  "main": "index.js",
+  "keywords": [
+    "vuejs",
+    "spa",
+    "front-end",
+    "boilerplate",
+    "starter-kit",
+    "template",
+    "fbi-project",
+    "fbi"
+  ],
+  "author": "neikvon",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "element-ui": "^2.4.6",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.16",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbi-templates/fbi-project-vue.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/fbi-templates/fbi-project-vue/issues"
+  },
+  "homepage": "https://github.com/fbi-templates/fbi-project-vue#readme",
+  "fbi": {
+    "template": {
+      "name": "fbi-project-vue",
+      "version": "v4.0.2"
+    }
+  }
+}
