@@ -1,7 +1,7 @@
 import ajax from '@/utils/ajax'
 
 export default {
-  list() {
+  test() {
     return ajax
       .get('users/fbi-templates/repos')
       .then(response => ajax.responseHandler(response))

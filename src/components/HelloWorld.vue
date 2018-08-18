@@ -51,16 +51,21 @@
       msg: String
     },
 
-    data () {
+    data() {
       return {
         repoList: []
       }
     },
 
-    mounted () {
-      this.$store.dispatch('repo/getList')
+    mounted() {
+      //访问state下的testState1,注意需要加模块标识repo
+      console.log(this.$store.state.repo.testState2.obj1)
+      console.log("param4=",this.$store.state.get.param4)
+      console.log("param1数组长度=",this.$store.getters['get/param1Length'])
+      console.log(this.$store.getters['get/sayHello']('123'))
+      this.$store
+        .dispatch('repo/getList')
         .then(res => {
-          console.log(res)
           this.repoList = res
         })
         .catch(err => {
@@ -70,7 +75,7 @@
             throw err
           }
         })
-    },
+    }
   }
 </script>
 
@@ -90,5 +95,4 @@
   ul li a {
     color: #42b983;
   }
-  
 </style>

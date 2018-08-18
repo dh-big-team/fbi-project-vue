@@ -1,13 +1,18 @@
 import repoApi from '@/api/repo'
 
 const state = {
-  list: []
+  list: [],
+  testState1: 1,
+  testState2: {
+    obj1: 'obj1',
+    obj2: 'obj2'
+  }
 }
 
 const getters = {}
 
 const actions = {
-  getList (ctx) {
+  getList(ctx) {
     return repoApi.list().then(list => {
       ctx.commit('reciveList', {
         list
@@ -18,7 +23,7 @@ const actions = {
 }
 
 const mutations = {
-  reciveList (state, { list }) {
+  reciveList(state, { list }) {
     state.list = list
   }
 }

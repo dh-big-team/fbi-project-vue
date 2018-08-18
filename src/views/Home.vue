@@ -40,10 +40,9 @@
     beforeCreate() {},
     created() {
       const timer = setInterval(() => {
-        console.log(this.num)
         this.num++
       }, 1000)
-
+      //页面销毁前清除定时器
       this.$once('hook:beforeDestroy', () => {
         clearInterval(timer)
         console.log('timer clear.')

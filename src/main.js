@@ -3,7 +3,7 @@ import '@/assets/css/base.css'
 import Vue from 'vue'
 import router from './router'
 import store from './store'
-import Index from './Index.vue'
+import App from './App.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -25,5 +25,5 @@ Vue.use(ElementUI)
 new Vue({
   router,
   store,
-  ...Index
+  ...App
 }).$mount('#app')

@@ -7,6 +7,8 @@ const Home = () =>
 const About = () =>
   import('@/views/About.vue' /* webpackChunkName: "chunk-about" */)
 const Hello = () => import('@/components/HelloWorld.vue')
+import NavMenu from '@/components/NavMenu.vue'
+import Demo from '@/components/demo'
 // import Home from '@/views/Home.vue'
 // import About from '@/views/About.vue'
 
@@ -31,12 +33,24 @@ const routerInstance = new Router({
       }
     },
     {
-      path: '/hello',
+      path: '/hello/:id',
       name: 'hello',
       component: Hello,
       meta: {
         title: 'hello'
       }
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: NavMenu,
+      meta: {
+        title: '导航菜单'
+      },
+      children: [
+        { path: 'about', component: About },
+        { path: '', component: Demo }
+      ]
     },
     {
       path: '*',
