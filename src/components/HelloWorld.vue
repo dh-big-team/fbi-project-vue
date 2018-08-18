@@ -61,12 +61,44 @@
       //访问state下的testState1,注意需要加模块标识repo
       console.log(this.$store.state.repo.testState2.obj1)
       console.log("param4=",this.$store.state.get.param4)
+      //测试getter
       console.log("param1数组长度=",this.$store.getters['get/param1Length'])
       console.log(this.$store.getters['get/sayHello']('123'))
+      //测试mutation
+      this.$store.commit('get/updParam4')
+      console.log("param4=",this.$store.state.get.param4)
+      this.$store.commit('get/pushParam1',11)
+      console.log("param1=",this.$store.state.get.param1)
+      
+      // this.$store
+      //   .dispatch('get/echo')
+      //   .then(res => {
+      //     console.log("echo 返回数据：",res)
+      //   })
+      //   .catch(err => {
+      //     if (err.message.indexOf('timeout of') >= 0) {
+      //       console.error('Timeout')
+      //     } else {
+      //       throw err
+      //     }
+      //   })
+
+      // this.$store
+      //   .dispatch('get/users',{pageNum:1,pageSize:4})
+      //   .then(res => {
+      //     console.log("users 返回数据：",res)
+      //   })
+      //   .catch(err => {
+      //     if (err.message.indexOf('timeout of') >= 0) {
+      //       console.error('Timeout')
+      //     } else {
+      //       throw err
+      //     }
+      //   })
       this.$store
-        .dispatch('repo/getList')
+        .dispatch('get/rbMenus',{pageNum:1,pageSize:5})
         .then(res => {
-          this.repoList = res
+          console.log("echo 返回数据：",res)
         })
         .catch(err => {
           if (err.message.indexOf('timeout of') >= 0) {
@@ -75,6 +107,19 @@
             throw err
           }
         })
+
+      // this.$store
+      //   .dispatch('repo/getList')
+      //   .then(res => {
+      //     this.repoList = res
+      //   })
+      //   .catch(err => {
+      //     if (err.message.indexOf('timeout of') >= 0) {
+      //       console.error('Timeout')
+      //     } else {
+      //       throw err
+      //     }
+      //   })
     }
   }
 </script>

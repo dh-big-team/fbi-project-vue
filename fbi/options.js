@@ -14,7 +14,7 @@ module.exports = {
     host: 'localhost',
     port: 8888,
     proxy: {
-      '/proxy': 'https://api.github.com'
+      '/proxy': 'http://192.168.0.63:18081'
     }
   },
 

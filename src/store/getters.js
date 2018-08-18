@@ -1,3 +1,4 @@
+import req from '@/api/testReq'
 // global state
 const state = {
   param1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -33,8 +34,37 @@ const getters = {
   }
 }
 
+const mutations = {
+  updParam4(state) {
+    state.param4 = 20
+  },
+  pushParam1(state, param) {
+    state.param1.push(param)
+  }
+}
+
+const actions = {
+  echo(ctx) {
+    return req.echo().then(rep => {
+      return rep
+    })
+  },
+  users(ctx, pageNum, pageSize) {
+    return req.users(pageNum, pageSize).then(rep => {
+      return rep
+    })
+  },
+  rbMenus(ctx, pageParam) {
+    return req.rbMenus(pageParam).then(rep => {
+      return rep
+    })
+  }
+}
+
 export default {
   namespaced: true,
   state,
-  getters
+  getters,
+  mutations,
+  actions
 }
