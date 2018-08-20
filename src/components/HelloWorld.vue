@@ -60,18 +60,18 @@
     mounted() {
       //访问state下的testState1,注意需要加模块标识repo
       console.log(this.$store.state.repo.testState2.obj1)
-      console.log("param4=",this.$store.state.get.param4)
+      console.log('param4=', this.$store.state.req.param4)
       //测试getter
-      console.log("param1数组长度=",this.$store.getters['get/param1Length'])
-      console.log(this.$store.getters['get/sayHello']('123'))
+      console.log('param1数组长度=', this.$store.getters['req/param1Length'])
+      console.log(this.$store.getters['req/sayHello']('123'))
       //测试mutation
-      this.$store.commit('get/updParam4')
-      console.log("param4=",this.$store.state.get.param4)
-      this.$store.commit('get/pushParam1',11)
-      console.log("param1=",this.$store.state.get.param1)
-      
+      this.$store.commit('req/updParam4')
+      console.log('param4=', this.$store.state.req.param4)
+      this.$store.commit('req/pushParam1', 11)
+      console.log('param1=', this.$store.state.req.param1)
+
       // this.$store
-      //   .dispatch('get/echo')
+      //   .dispatch('req/echo')
       //   .then(res => {
       //     console.log("echo 返回数据：",res)
       //   })
@@ -84,7 +84,7 @@
       //   })
 
       // this.$store
-      //   .dispatch('get/users',{pageNum:1,pageSize:4})
+      //   .dispatch('req/users',{pageNum:1,pageSize:4})
       //   .then(res => {
       //     console.log("users 返回数据：",res)
       //   })
@@ -96,9 +96,9 @@
       //     }
       //   })
       this.$store
-        .dispatch('get/rbMenus',{pageNum:1,pageSize:5})
+        .dispatch('req/rbMenus', { pageNum: 1, pageSize: 5 })
         .then(res => {
-          console.log("echo 返回数据：",res)
+          console.log('echo 返回数据：', res)
         })
         .catch(err => {
           if (err.message.indexOf('timeout of') >= 0) {

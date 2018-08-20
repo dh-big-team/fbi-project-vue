@@ -33,7 +33,7 @@ const routerInstance = new Router({
       }
     },
     {
-      path: '/hello/:id',
+      path: '/hello',
       name: 'hello',
       component: Hello,
       meta: {

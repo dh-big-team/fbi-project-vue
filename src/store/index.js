@@ -3,7 +3,7 @@ import * as getters from './getters'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import repo from './modules/repo'
-import get from './getters'
+import req from './modules/Req'
 
 Vue.use(Vuex)
 
@@ -13,7 +13,7 @@ export default new Vuex.Store({
   //分割成模块
   modules: {
     repo,
-    get
+    req
   }
   // getters
 })
