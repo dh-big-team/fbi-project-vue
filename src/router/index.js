@@ -2,13 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import hooks from './hooks'
 
-const Home = () =>
-  import('@/views/Home.vue' /* webpackChunkName: "chunk-home" */)
-const About = () =>
-  import('@/views/About.vue' /* webpackChunkName: "chunk-about" */)
+import { Login, Home, About } from '@/views/'
+// const Home = () =>
+//   import('@/views/Home.vue' /* webpackChunkName: "chunk-home" */)
+// const About = () =>
+//   import('@/views/About.vue' /* webpackChunkName: "chunk-about" */)
 const Hello = () => import('@/components/HelloWorld.vue')
 import NavMenu from '@/components/NavMenu.vue'
 import Demo from '@/components/demo'
+
 // import Home from '@/views/Home.vue'
 // import About from '@/views/About.vue'
 
@@ -18,10 +20,18 @@ const routerInstance = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'login',
+      component: Login,
       meta: {
-        title: '欢迎页'
+        title: '登录页'
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        title: '登录页'
       }
     },
     {

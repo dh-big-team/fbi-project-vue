@@ -5,6 +5,13 @@ import Vuex from 'vuex'
 import repo from './modules/repo'
 import req from './modules/Req'
 
+import cart from './cart/'
+import user from './user/'
+import global from './global/'
+import leftmenu from './leftmenu/'
+import router from './router/'
+import tabs from './tabs/'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -13,7 +20,12 @@ export default new Vuex.Store({
   //分割成模块
   modules: {
     repo,
-    req
+    req,
+    cart,
+    user,
+    global,
+    router,
+    leftmenu,
+    tabs
   }
-  // getters
 })
