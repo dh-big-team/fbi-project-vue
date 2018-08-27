@@ -7,6 +7,7 @@ import * as types from './mutations_types.js'
 export default {
   update_userinfo: ({ commit }, { userinfo }) => {
     return new Promise((resolve, reject) => {
+      //提交mutations中的方法
       commit(types.UPDATE_USERINFO, {
         userinfo
       })

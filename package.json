@@ -46,6 +46,8 @@
   },
   "devDependencies": {
     "css-loader": "^0.28.11",
+    "element-theme-chalk": "^2.4.6",
+    "element-theme-default": "git+https://github.com/ElementUI/theme-default.git",
     "less": "^2.7.3",
     "less-loader": "^4.1.0",
     "style-loader": "^0.22.1",

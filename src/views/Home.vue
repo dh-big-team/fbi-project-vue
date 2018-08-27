@@ -10,7 +10,7 @@
 
 <script>
   import Demo from '@/components/demo'
-  import HelloWorld from '@/components/HelloWorld.vue'
+  import HelloWorld from './HelloWorld.vue'
 
   export default {
     name: 'home',

@@ -42,11 +42,19 @@ module.exports = {
   // e.g: import '../../components/x' => import '@/components/x'
   alias: {
     '@': resolve('src'),
-    cps: resolve('src/components'),
     vue: resolve('node_modules/vue/dist/vue.esm.js'),
     vuex: resolve('node_modules/vuex/dist/vuex.esm.js'),
     'vue-router': resolve('node_modules/vue-router/dist/vue-router.esm.js'),
-    'vuex-router-sync': resolve('node_modules/vuex-router-sync/index.js')
+    'vuex-router-sync': resolve('node_modules/vuex-router-sync/index.js'),
+    cps: resolve('src/components'),
+    views: resolve('src/views'),
+    layout: resolve('src/layout'),
+    config: resolve('src/config'),
+    utils: resolve('src/utils'),
+    store: resolve('src/store'),
+    register: resolve('src/register'),
+    apis: resolve('src/apis'),
+    router: resolve('src/router')
   },
 
   // Webpack module noParse

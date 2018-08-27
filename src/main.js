@@ -1,12 +1,11 @@
-import '@/utils/rem'
-import '@/assets/css/base.css'
+//import '@/utils/rem'
 import Vue from 'vue'
 import router from './router'
 import './register'
 import store from './store'
 import App from './App.vue'
+import '../theme/index.css'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = true
 Vue.config.devtools = ENV === 'dev'
