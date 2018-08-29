@@ -65,3 +65,4 @@ typings/
 .env
 
 .vscode
+src/App.vue
