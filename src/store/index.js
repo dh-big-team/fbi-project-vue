@@ -2,9 +2,6 @@ import * as getters from './getters'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import repo from './modules/repo'
-import req from './modules/Req'
-
 import cart from './cart/'
 import user from './user/'
 import global from './global/'
@@ -19,8 +16,6 @@ export default new Vuex.Store({
   strict: true,
   //分割成模块
   modules: {
-    repo,
-    req,
     cart,
     user,
     global,

@@ -3,14 +3,10 @@
  */
 
 import Login from './login/'
-import About from './About.vue'
-import Home from './Home.vue'
-import Hello from './HelloWorld.vue'
-import Menu from './NavMenu.vue'
+// import Function from './function/'
+// import Adv from './adv/'
+// import Demo from './demo/'
+// import Components from './components/'
+import Sys from './sys/'
 
-import Function from './function/'
-import Adv from './adv/'
-import Demo from './demo/'
-import Components from './components/'
-
-export { Login, About, Home, Hello, Menu, Function, Adv, Demo, Components }
+export { Login, Sys }

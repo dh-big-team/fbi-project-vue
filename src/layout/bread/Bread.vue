@@ -1,13 +1,8 @@
 <template>
   <div class='bread'>
-    <strong>
-      {{strong}}
-    </strong>
-    <el-breadcrumb separator="/" class='el-bread'>
+    <el-breadcrumb separator=">" class='el-bread'>
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item
-        v-for='(item,index) in $route.matched'
-        :key='index'>{{item.name}}
+      <el-breadcrumb-item v-for='(item,index) in $route.matched' :key='index'>{{item.name}}
       </el-breadcrumb-item>
     </el-breadcrumb>
   </div>
@@ -46,12 +41,11 @@
 <style scoped lang='less'>
   .bread {
     height: 40px;
-    line-height: 26px;
+    line-height: 40px;
+    padding-left: 30px;
     .el-bread {
       display: inline-block;
-      float: right;
-      text-align: right;
-      line-height: 26px;
+      line-height: 40px;
     }
   }
 </style>

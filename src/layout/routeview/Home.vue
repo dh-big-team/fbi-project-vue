@@ -1,11 +1,11 @@
 <template v-loading.fullscreen.lock="$store.state.global.ajax_loading">
   <div class="home">
     <head-nav></head-nav>
-    <div class="left-fixed-right-auto">
+    <div class="container">
       <left-menu></left-menu>
-      <div class="right-content">
-        <div class="content" :style="{marginLeft:$store.state.leftmenu.width}">
-          <tabs></tabs>
+      <div class="right-content" :style="{left:$store.state.leftmenu.width}">
+        <div class="content">
+          <!--<tabs></tabs>-->
           <bread></bread>
           <keep-alive>
             <router-view></router-view>
@@ -29,14 +29,24 @@
   }
 </script>
 <style scoped lang='less'>
-  .content {
-    margin-top: 44px;
-    /*background: #f1f2f7;*/
-    background: #fff;
-    padding: 16px;
+  .container {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  .right-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
-  .right-content {
-    margin-bottom: 60px;
+  .content {
+    padding-left: 10px;
   }
 </style>
