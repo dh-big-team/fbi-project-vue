@@ -1,5 +1,5 @@
 <template>
-  <div class="left" :style="{'height':win_size.height,'width':$store.state.leftmenu.width}" id='admin-left'>
+  <div class="left" :style="{'height':win_size.height,'width':$store.state.leftmenu.width}" id='admin-left' v-if="$store.state.leftmenu.show_flag">
     <div id='left-menu'>
       <template v-for="route in $store.state.user.userinfo.menuList" v-if='$route.matched.length && $route.matched[0].path===route.menuUrl'>
         <el-menu class="el-menu-vertical-demo" :key="route.menuId" :style="{'border-right':'none'}" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" :default-active="$route.path" unique-opened router>

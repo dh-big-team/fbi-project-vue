@@ -131,12 +131,12 @@ export default {
                   if (data.default_web_routers) {
                     this.$router.push(data.default_web_routers)
                   } else {
-                    this.$router.push('/sys/perm/user')
+                    this.$router.push('/index')
                   }
                 })
             },
             errFn: err => {
-              this.$message.error(err.msg)
+              this.$message.error(err.err_msg)
               this.login_actions.disabled = false
             },
             tokenFlag: true

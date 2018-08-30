@@ -11,7 +11,7 @@ export default {
   name: '权限管理',
   icon: 'inbox',
   component: Content,
-  redirect: '/sys/perm/user',
+  redirect: '/sys/perm/menu',
   children: [
     {
       path: 'user',

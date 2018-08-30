@@ -1,7 +1,7 @@
 <template>
-  <div class='bread'>
+  <div class='bread' v-if="$store.state.leftmenu.show_flag">
     <el-breadcrumb separator=">" class='el-bread'>
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item v-for='(item,index) in $route.matched' :key='index'>{{item.name}}
       </el-breadcrumb-item>
     </el-breadcrumb>

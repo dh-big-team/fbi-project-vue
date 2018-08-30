@@ -46,36 +46,28 @@ export default {
       this.setSize()
     })
     this.updateCurMenu()
+    if (this.$store.state.router.headerCurRouter === '/index') {
+      this.$store.dispatch('set_menu_hide')
+    }
   },
+
   mounted() {
     // console.log(this.$store.state.user.userinfo.access);
     console.log('-------routes=', this.$router.options.routes)
     console.log('-------matched=', this.$route.matched)
     console.log('-------url=', this.$store.state.router.headerCurRouter)
-
-    for (let route of this.$router.options.routes) {
-      if (
-        !route.hidden &&
-        this.$route.matched.length &&
-        this.$route.matched[0].path === route.path
-      ) {
-        console.log('一级菜单：', route.path)
-        if (route.children) {
-          for (let child of route.children) {
-            console.log('二级菜单：', child.path)
-            if (child.children) {
-              for (let item of child.children) {
-                console.log('三级菜单', item.path)
-              }
-            }
-          }
-        }
-      }
-    }
   },
+
   watch: {
     $route(to, from) {
       this.updateCurMenu(to)
+
+      if (to.path === '/index') {
+        this.$store.dispatch('set_menu_hide')
+      } else {
+        this.$store.dispatch('set_menu_show')
+        console.log(this.$store.state.leftmenu.show_flag)
+      }
     }
   }
 }

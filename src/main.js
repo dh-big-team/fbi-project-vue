@@ -23,7 +23,7 @@ Vue.config.errorHandler = function(err, vm, info) {
 }
 Vue.use(ElementUI)
 new Vue({
-  router,
   store,
+  router,
   ...App
 }).$mount('#app')

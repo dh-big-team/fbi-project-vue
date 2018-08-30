@@ -6,6 +6,7 @@
       </el-col>
       <el-col :span="16">
         <el-menu :default-active="$store.state.router.headerCurRouter" mode="horizontal" background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
+          <el-menu-item index="/index">首页</el-menu-item>
           <el-menu-item v-for='item in $store.state.user.userinfo.menuList' :index="item.menuUrl" :key='item.menuUrl'>
             {{item.menuName}}
           </el-menu-item>

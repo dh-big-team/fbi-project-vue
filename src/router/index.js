@@ -2,13 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import hooks from './hooks'
 
-import { Login } from 'views/'
+import { Login, Function } from 'views/'
+import { Home, TestHome } from 'layout/'
 // import Adv from './adv/'
 // import Functions from './function/'
 // import Demo from './demo/'
 // import Components from './components/'
 import Sys from './sys/'
-import { networkInterfaces } from 'os'
 
 Vue.use(Router)
 
@@ -28,8 +28,29 @@ const routerInstance = new Router({
       hidden: true,
       component: Login,
       meta: {
-        title: '登录页'
+        title: '登录'
       }
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: Home,
+      meta: {
+        title: '首页'
+      },
+      children: [
+        {
+          path: '',
+          name: 'index_child',
+          component: Function.Open.Echarts
+        }
+      ]
+    },
+    {
+      path: '/test',
+      name: 'test',
+      hidden: true,
+      component: TestHome
     },
     Sys
   ]
@@ -38,7 +59,7 @@ const routerInstance = new Router({
 routerInstance.beforeEach((to, from, next) => {
   console.log('----to', to)
   console.log('-----from', from)
-  console.log('userinfo=', this.$store.state.user.userinfo)
+
   next()
 })
 

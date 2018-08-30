@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <transition name="fade">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+
+      <router-view></router-view>
+
     </transition>
   </div>
 </template>
@@ -26,11 +26,11 @@
 <style scoped lang='less'>
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity .3s
+    transition: opacity 0.3s;
   }
 
   .fade-enter,
   .fade-leave-active {
-    opacity: 0
+    opacity: 0;
   }
 </style>
