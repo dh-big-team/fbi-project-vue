@@ -2,7 +2,7 @@
   <div id="app">
     <transition name="bounce">
       <keep-alive>
-        <router-view></router-view>
+        <router-view>  </router-view>
       </keep-alive>
     </transition>
   </div>

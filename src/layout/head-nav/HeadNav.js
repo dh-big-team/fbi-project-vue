@@ -1,6 +1,6 @@
 export default {
   name: 'head-nav',
-  data () {
+  data() {
     return {
       dialog: {
         show_access: false,
@@ -16,58 +16,66 @@ export default {
         },
 
         user_info_rules: {
-          old_password: [{
-            required: true,
-            message: '旧密码不能为空！',
-            trigger: 'blur'
-          }],
-          password: [{
-            required: true,
-            message: '新密码不能为空！',
-            trigger: 'blur'
-          }, {
-            trigger: 'blur',
-            validator: (rule, value, callback) => {
-              if (value === '') {
-                callback(new Error('请再次输入密码'))
-              } else {
-                if (this.dialog.user_info.password !== '') {
-                  this.$refs.user_info.validateField('password_confirm')
+          old_password: [
+            {
+              required: true,
+              message: '旧密码不能为空！',
+              trigger: 'blur'
+            }
+          ],
+          password: [
+            {
+              required: true,
+              message: '新密码不能为空！',
+              trigger: 'blur'
+            },
+            {
+              trigger: 'blur',
+              validator: (rule, value, callback) => {
+                if (value === '') {
+                  callback(new Error('请再次输入密码'))
+                } else {
+                  if (this.dialog.user_info.password !== '') {
+                    this.$refs.user_info.validateField('password_confirm')
+                  }
+                  callback()
                 }
-                callback()
               }
             }
-          }],
-          password_confirm: [{
-            required: true,
-            message: '确认密码不能为空！',
-            trigger: 'blur'
-          }, {
-            trigger: 'blur',
-            validator: (rule, value, callback) => {
-              if (value === '') {
-                callback(new Error('请再次输入密码'))
-              } else if (value !== this.dialog.user_info.password) {
-                callback(new Error('两次输入密码不一致!'))
-              } else {
-                callback()
+          ],
+          password_confirm: [
+            {
+              required: true,
+              message: '确认密码不能为空！',
+              trigger: 'blur'
+            },
+            {
+              trigger: 'blur',
+              validator: (rule, value, callback) => {
+                if (value === '') {
+                  callback(new Error('请再次输入密码'))
+                } else if (value !== this.dialog.user_info.password) {
+                  callback(new Error('两次输入密码不一致!'))
+                } else {
+                  callback()
+                }
               }
             }
-          }]
+          ]
         }
       }
     }
   },
-  mounted () {
+  mounted() {
     // this.setDialogInfo('access');
-
     // this.onGetSetting();
+    console.log('headerCurRouter=', this.$store.state.router.headerCurRouter)
   },
   methods: {
     /**
      * 退出登录
      */
-    logout () {
+    logout() {
       this.$confirm('你确定退出登录么?', '确认退出', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -83,7 +91,7 @@ export default {
      * 弹出框-修改密码或者系统设置
      * @param {string} cmditem 弹框类型
      */
-    setDialogInfo (cmditem) {
+    setDialogInfo(cmditem) {
       if (!cmditem) {
         console.log('test')
         this.$message('菜单选项缺少command属性')
@@ -117,8 +125,8 @@ export default {
      * 修改密码
      * @param  {object} userinfo 当前修改密码的表单信息
      */
-    updUserPass (userinfo) {
-      this.$refs[userinfo].validate((valid) => {
+    updUserPass(userinfo) {
+      this.$refs[userinfo].validate(valid => {
         if (valid) {
           this.$$api_user_updatePass({
             data: {
@@ -138,13 +146,15 @@ export default {
     /**
      * 获取系统设置信息
      */
-    onGetSetting () {
+    onGetSetting() {
       // 获取系统设置信息
       if (this.$store.state.user.userinfo.pid === 0) {
         this.$$api_system_getSetting({
           fn: data => {
             if (data.setting_info.disabled_update_pass) {
-              data.setting_info.disabled_update_pass = data.setting_info.disabled_update_pass.split(',')
+              data.setting_info.disabled_update_pass = data.setting_info.disabled_update_pass.split(
+                ','
+              )
             } else {
               data.setting_info.disabled_update_pass = []
             }
@@ -161,7 +171,7 @@ export default {
     /**
      * 修改系统设置信息
      */
-    onUpdateSetting () {
+    onUpdateSetting() {
       // console.log(this.dialog.set_info.login_style);
       // console.log(this.dialog.set_info.disabled_update_pass);
       // console.log(this.dialog.set_info.id);
@@ -170,7 +180,11 @@ export default {
         data: {
           id: this.dialog.set_info.id,
           login_style: this.dialog.set_info.login_style,
-          disabled_update_pass: this.dialog.set_info.disabled_update_pass && this.dialog.set_info.disabled_update_pass.length ? this.dialog.set_info.disabled_update_pass.join(',') : ''
+          disabled_update_pass:
+            this.dialog.set_info.disabled_update_pass &&
+            this.dialog.set_info.disabled_update_pass.length
+              ? this.dialog.set_info.disabled_update_pass.join(',')
+              : ''
         },
         fn: data => {
           this.dialog.show_set = false

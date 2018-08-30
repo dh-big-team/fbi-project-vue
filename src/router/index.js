@@ -3,13 +3,12 @@ import Router from 'vue-router'
 import hooks from './hooks'
 
 import { Login } from 'views/'
-// const Hello = () => import('/views/HelloWorld.vue')
-// import NavMenu from '/views//NavMenu.vue'
-//import Demo from '@/components/demo'
-import Adv from './adv/'
-import Function from './function/'
-import Demo from './demo/'
-import components from './components/'
+// import Adv from './adv/'
+// import Functions from './function/'
+// import Demo from './demo/'
+// import Components from './components/'
+import Sys from './sys/'
+import { networkInterfaces } from 'os'
 
 Vue.use(Router)
 
@@ -32,15 +31,15 @@ const routerInstance = new Router({
         title: '登录页'
       }
     },
-    Function,
-    Demo,
-    components,
-    Adv,
-    {
-      path: '*',
-      redirect: '/'
-    }
+    Sys
   ]
+})
+
+routerInstance.beforeEach((to, from, next) => {
+  console.log('----to', to)
+  console.log('-----from', from)
+  console.log('userinfo=', this.$store.state.user.userinfo)
+  next()
 })
 
 const beforeEachKeys = Object.keys(hooks.beforeEach)

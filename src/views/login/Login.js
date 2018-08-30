@@ -115,32 +115,12 @@ export default {
                 this.$store.dispatch('update_remumber', {
                   remumber_flag: this.remumber.remumber_flag,
                   remumber_login_info: {
-                    username: this[ref].username,
+                    username: this[ref].loginName,
                     token: data.token
                   }
                 })
               } else {
                 this.$store.dispatch('remove_remumber')
-              }
-              //this.$set是vue的方法，用法参考vue框架的api
-              this.$set(data, 'access', [
-                '/adv',
-                '/demo/user',
-                '/demo/user/list'
-              ])
-              try {
-                data.web_routers = JSON.parse(data.web_routers)
-                  ? JSON.parse(data.web_routers)
-                  : {}
-              } catch (e) {
-                data.web_routers = {}
-              }
-              try {
-                data.api_routers = JSON.parse(data.api_routers)
-                  ? JSON.parse(data.api_routers)
-                  : {}
-              } catch (e) {
-                data.api_routers = {}
               }
               this.$store
                 .dispatch('update_userinfo', {
@@ -151,7 +131,7 @@ export default {
                   if (data.default_web_routers) {
                     this.$router.push(data.default_web_routers)
                   } else {
-                    this.$router.push('/function/open/echarts')
+                    this.$router.push('/sys/perm/user')
                   }
                 })
             },
