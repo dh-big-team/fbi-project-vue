@@ -9,6 +9,7 @@ import { Home, TestHome } from 'layout/'
 // import Demo from './demo/'
 // import Components from './components/'
 import Sys from './sys/'
+import store from '../store'
 
 Vue.use(Router)
 
@@ -56,11 +57,57 @@ const routerInstance = new Router({
   ]
 })
 
+/**
+ * 全局守卫，处理用户登录及鉴权
+ */
 routerInstance.beforeEach((to, from, next) => {
+  if (to.path === '/login') {
+    //登录页直接放行
+    next()
+    return
+  }
+  if (!store.getters.getToken) {
+    //没有登录，跳转到登录页
+    next('/login')
+    return
+  }
+  //此处暂时怎么写，正式开发时应将可放行的url统一初始化到一个全局数组中
+  if (store.getters.getToken && (to.path === '/index' || to.path === '/404')) {
+    //已登录且访问的是首页放行
+    next()
+    return
+  }
+  //已登录，且访问放行之外的url
+  console.log('token', store.getters.getToken)
   console.log('----to', to)
   console.log('-----from', from)
-
-  next()
+  let userMenuList = store.getters.getUserMenuList
+  console.log('-----userMenu', userMenuList)
+  let hasPerm = false
+  //校验用户是否有该权限
+  //暂时先这么写，后续再优化权限判断算法
+  for (let fidx in userMenuList) {
+    let fmenu = userMenuList[fidx]
+    if (fmenu.childList.length > 0) {
+      for (let cidx in fmenu.childList) {
+        let cmenu = fmenu.childList[cidx]
+        if (cmenu.childList.length > 0) {
+          for (let sidx in cmenu.childList) {
+            let smenu = cmenu.childList[sidx]
+            if (smenu.menuUrl === to.path) {
+              hasPerm = true
+              break
+            }
+          }
+        }
+      }
+    }
+  }
+  if (hasPerm) {
+    next()
+  } else {
+    next('/404')
+  }
 })
 
 const beforeEachKeys = Object.keys(hooks.beforeEach)

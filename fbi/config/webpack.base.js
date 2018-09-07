@@ -166,7 +166,13 @@ if (opts.eslint.enable) {
         rules: {
           // rules docs: https://standardjs.com/rules.html
           semi: ['error', 'never'],
-          indent: ['error', 2]
+          indent: [
+            'error',
+            2,
+            {
+              SwitchCase: 1
+            }
+          ]
         }
       },
       opts.eslint.options

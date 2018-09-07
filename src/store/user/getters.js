@@ -3,15 +3,19 @@
  */
 
 export default {
-  getUserinfo (state) {
+  getUserinfo(state) {
     return state.userinfo
   },
 
-  getToken (state) {
+  getToken(state) {
     return state.userinfo && state.userinfo.token ? state.userinfo.token : ''
   },
 
-  getRemumber (state) {
+  getRemumber(state) {
     return state.remumber
+  },
+
+  getUserMenuList(state) {
+    return state.userinfo.menuList
   }
 }
