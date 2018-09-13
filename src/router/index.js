@@ -79,52 +79,8 @@ routerInstance.beforeEach((to, from, next) => {
     next()
     return
   }
-  //已登录，且访问放行之外的url
+  //已登录放行
   next()
-
-  // console.log('token', store.getters.getToken)
-  // console.log('----to', to)
-  // console.log('-----from', from)
-  // let userMenuList = store.getters.getUserMenuList
-  // console.log('-----userMenu', userMenuList)
-  // console.log(to.meta)
-
-  // let hasPerm = false
-  //校验用户是否有该权限
-  //暂时先这么写，后续再优化权限判断算法
-  // for (let fidx in userMenuList) {
-  //   let fmenu = userMenuList[fidx]
-  //   if (fmenu.childList.length > 0) {
-  //     for (let cidx in fmenu.childList) {
-  //       let cmenu = fmenu.childList[cidx]
-  //       if (cmenu.childList.length > 0) {
-  //         for (let sidx in cmenu.childList) {
-  //           let smenu = cmenu.childList[sidx]
-  //           let path = fmenu.menuUrl + cmenu.menuUrl + smenu.menuUrl
-  //           console.log('111111111=' + path)
-
-  //           if (path === to.path) {
-  //             hasPerm = true
-  //             break
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  // if (hasPerm) {
-  //   next()
-  // } else {
-  //   next('/404')
-  // }
 })
-
-// const beforeEachKeys = Object.keys(hooks.beforeEach)
-
-// if (beforeEachKeys.length > 0) {
-//   beforeEachKeys.map(hook => {
-//     routerInstance.beforeEach(hooks.beforeEach[hook])
-//   })
-// }
 
 export default routerInstance

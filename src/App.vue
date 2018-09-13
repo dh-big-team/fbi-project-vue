@@ -37,6 +37,12 @@
           this.$store.dispatch('set_is_auto_router', true)
         }
       },
+      onMatchRouter(){
+        //地址输入错误，跳转到404页面
+        if (this.$route.matched.length===0) {
+          this.$router.push('/404')
+        }
+      },
       init () {
         this.onUpdateTabs()
         this.onUpdateRouters()
@@ -44,6 +50,7 @@
     },
     mounted () {
       this.init()
+      this.onMatchRouter()
     },
     watch: {
       $route (to, from) {

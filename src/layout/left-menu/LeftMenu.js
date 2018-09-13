@@ -53,10 +53,10 @@ export default {
 
   mounted() {
     // console.log(this.$store.state.user.userinfo.access);
-    console.log('-------routes=', this.$router.options.routes)
-    console.log('-------matched=', this.$route.matched)
-    console.log('-------url=', this.$store.state.router.headerCurRouter)
-    console.log('-------token=', this.$store.getters.getToken)
+    //console.log('-------routes=', this.$router.options.routes)
+    //console.log('-------matched=', this.$route.matched)
+    //console.log('-------url=', this.$store.state.router.headerCurRouter)
+    //console.log('-------token=', this.$store.getters.getToken)
   },
 
   watch: {
