@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import Menu from './Menu.js'
+  import Mcc from './Mcc.js'
 
-  export default Menu
+  export default Mcc
 </script>
 <style scoped>
 </style>

@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import Menu from './Menu.js'
+  import Merch from './Merch.js'
 
-  export default Menu
+  export default Merch
 </script>
 <style scoped>
 </style>

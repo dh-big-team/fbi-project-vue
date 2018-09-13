@@ -14,7 +14,7 @@ module.exports = {
     host: 'localhost',
     port: 8888,
     proxy: {
-      '/proxy': 'http://192.168.0.63:18081'
+      '/proxy': 'http://192.168.2.215:18081'
     }
   },
 

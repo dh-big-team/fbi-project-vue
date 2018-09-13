@@ -122,6 +122,15 @@ export default {
               } else {
                 this.$store.dispatch('remove_remumber')
               }
+              //动态添加路由
+              this.$store.dispatch('set_router_menu', data)
+
+              if (!this.$store.state.router.isAutoRouter) {
+                let routes = this.$store.state.router.routerMenu
+                this.$router.addRoutes(routes)
+                this.$router.options.routes.push(routes)
+                this.$store.dispatch('set_is_auto_router', true)
+              }
               this.$store
                 .dispatch('update_userinfo', {
                   userinfo: data

@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import Menu from './Menu.js'
+  import Region from './Region.js'
 
-  export default Menu
+  export default Region
 </script>
 <style scoped>
 </style>

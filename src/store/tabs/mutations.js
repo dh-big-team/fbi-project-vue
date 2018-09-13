@@ -18,8 +18,8 @@ export default {
           query: route.query,
           hash: route.hash
         })
-        // console.log('更新tabs route', route)
-        // console.log('更新tabs state.list', state.list)
+        console.log('更新tabs route', route)
+        console.log('更新tabs state.list', state.list)
         store.set('tabs_list', state.list)
         store.set('tabs_path_list', state.pathList)
       }

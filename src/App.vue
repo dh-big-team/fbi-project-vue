@@ -29,8 +29,17 @@
           route: this.$route
         })
       },
+      onUpdateRouters(){
+        let routes = this.$store.state.router.routerMenu
+        if ((!this.$store.state.router.isAutoRouter)&&routes.length>0) {
+          this.$router.addRoutes(routes)
+          this.$router.options.routes.push(routes)
+          this.$store.dispatch('set_is_auto_router', true)
+        }
+      },
       init () {
         this.onUpdateTabs()
+        this.onUpdateRouters()
       }
     },
     mounted () {

@@ -22,13 +22,13 @@ Vue.use({
     // 注册第三方库
     _.each(libs, (item, key) => {
       Vue.prototype['$$' + key] = item
-      console.log('libs--------$$' + key)
+      //console.log('libs--------$$' + key)
     })
 
     // 注册全局方法，如常用的接口方法，工具方法等。
     _.each(plugins, (item, key) => {
       Vue.prototype['$$' + key] = item
-      console.log('plugins------$$' + key)
+      //console.log('plugins------$$' + key)
     })
   }
 })
@@ -38,6 +38,6 @@ _.each(cps, (item, key) => {
   if (cpName && cpName[0] === '-') {
     cpName = cpName.replace('-', '')
   }
-  console.log('component------$$' + key)
+  //console.log('component------$$' + key)
   Vue.component(cpName, item)
 })

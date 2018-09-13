@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import Menu from './Menu.js'
+  import Income from './Income'
 
-  export default Menu
+  export default Income
 </script>
 <style scoped>
 </style>

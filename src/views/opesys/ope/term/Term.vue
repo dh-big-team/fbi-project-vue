@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import Menu from './Menu.js'
+  import Term from './Term.js'
 
-  export default Menu
+  export default Term
 </script>
 <style scoped>
 </style>

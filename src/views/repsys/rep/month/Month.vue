@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import Menu from './Menu.js'
+  import Month from './Month.js'
 
-  export default Menu
+  export default Month
 </script>
 <style scoped>
 </style>

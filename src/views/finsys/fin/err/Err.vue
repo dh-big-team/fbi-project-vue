@@ -27,9 +27,9 @@
 </template>
 
 <script>
-  import Menu from './Menu.js'
+  import Err from './Err.js'
 
-  export default Menu
+  export default Err
 </script>
 <style scoped>
 </style>
